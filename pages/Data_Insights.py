@@ -45,17 +45,6 @@ def generate_graph(df):
     )
     return fig
 
-# Function to generate Bar Chart: Monthly Count of Reviews
-def plot_monthly_review_counts(df):
-    monthly_counts = df['Month'].value_counts().sort_index()
-    fig = go.Figure(go.Bar(x=monthly_counts.index, y=monthly_counts.values))
-    fig.update_layout(
-        title='Monthly Count of Reviews',
-        xaxis_title='Month',
-        yaxis_title='Count'
-    )
-    return fig
-
 
 def main():
     st.title("Business Data Insights")
@@ -77,7 +66,7 @@ def main():
     selected_insights = st.sidebar.multiselect('Select Insights', ['Overall Sentiment Across Months',
                                                                     'Distribution of Overall Feelings',
                                                                     'Distribution of Sentiment Scores',
-                                                                    'Monthly Count of Reviews'])
+                                                                    ])
 
     if 'Distribution of Overall Feelings' in selected_insights:
         st.subheader('Distribution of Overall Feelings')
@@ -94,10 +83,5 @@ def main():
         fig3 = plot_sentiment_score_distribution(df)
         st.plotly_chart(fig3)
 
-
-    if 'Monthly Count of Reviews' in selected_insights:
-        st.subheader('Monthly Count of Reviews')
-        fig4 = plot_monthly_review_counts(df)
-        st.plotly_chart(fig4)
 if __name__ == '__main__':
     main()
