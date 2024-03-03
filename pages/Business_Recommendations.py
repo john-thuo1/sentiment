@@ -65,14 +65,14 @@ def main():
                 st.session_state.chat_history.append({"role": "assistant", "content": recommendation})
                 st.session_state.initial_recommendation_done = True
 
-            # Display chat history 
+
             for chat_message in st.session_state.chat_history:
                 if chat_message["role"] == "user":
                     st.markdown(f"<i class='fa-solid fa-user'></i> <strong>{chat_message['content']}</strong>", unsafe_allow_html=True)
                 else:  # role == "assistant"
                     st.markdown(f"<i class='fas fa-robot'></i> {chat_message['content']}", unsafe_allow_html=True)
 
-            # Follow-up question input
+
             prompt = st.chat_input("Follow Up Question? Inquire from here ...")
             if prompt:
                 st.session_state.chat_history.append({"role": "user", "content": prompt})

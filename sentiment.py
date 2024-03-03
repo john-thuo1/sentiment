@@ -20,7 +20,7 @@ def sentiment_score(review, tokenizer, model):
 
 
 def main():
-    st.title("Multilingual Sentiment Analysis Tool For Your Business")
+    st.title("Opinion Mining Tool For Your Business")
     csv_file = st.file_uploader("Please upload Your Business' Reviews", type=["csv"])
 
     if csv_file is not None:
