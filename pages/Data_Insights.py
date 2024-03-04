@@ -3,7 +3,7 @@ import streamlit as st
 import plotly.graph_objects as go
 
     
-# Function to generate Bar Chart: Distribution of Overall Feelings
+# Bar Chart: Distribution of Overall Feelings
 def plot_overall_feelings(df):
     counts = df['Overall'].value_counts()
     fig = go.Figure(go.Bar(x=counts.index, y=counts.values))
@@ -15,7 +15,8 @@ def plot_overall_feelings(df):
     )
     return fig
 
-# Function to generate Box Plot: Distribution of Sentiment Scores
+
+# Box Plot: Distribution of Sentiment Scores
 def plot_sentiment_score_distribution(df):
     fig = go.Figure(go.Box(y=df['Sentiment Score'], boxpoints='all', jitter=0.5, whiskerwidth=0.2))
     fig.update_layout(
@@ -25,7 +26,7 @@ def plot_sentiment_score_distribution(df):
     return fig
 
 
-# Function to show Sentiment across the different months
+# Sentiment across different months
 def generate_graph(df):
     monthly_sentiment = df.groupby('Month')['Sentiment Score'].mean().reset_index()
     sentiment_counts = df.groupby(['Month', 'Overall']).size().reset_index(name='Count')

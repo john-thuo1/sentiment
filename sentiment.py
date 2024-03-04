@@ -12,6 +12,7 @@ def load_model():
     model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
     return tokenizer, model
 
+
 # Sentiment Scoring
 def sentiment_score(review, tokenizer, model):
     tokens = tokenizer.encode(review, return_tensors='pt')
@@ -29,7 +30,6 @@ def main():
         snapshot = df.head(3)
         st.dataframe(snapshot) 
 
-        # Load the model
         tokenizer, model = load_model()
 
         if st.button("Analyze"):

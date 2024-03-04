@@ -7,10 +7,12 @@ client = OpenAI(
     api_key=config("OPENAI_API_KEY"),
 )
 
+
 def truncate_text(text, max_length):
     if len(text) > max_length:
         return text[:max_length] + "..."
     return text
+
 
 def generate_initial_recommendation(business_data):
     message = ""
@@ -30,6 +32,7 @@ def generate_initial_recommendation(business_data):
     )
     return response.choices[0].message.content.strip()
 
+
 def generate_follow_up_response(chat_history):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -37,10 +40,9 @@ def generate_follow_up_response(chat_history):
     )
     return response.choices[0].message.content.strip()
 
+
 def main():
     st.title("Business Recommendation Chat")
-
-    # Include FontAwesome CDN
     st.markdown(
         """
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
