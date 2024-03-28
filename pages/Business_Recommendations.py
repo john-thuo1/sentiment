@@ -1,11 +1,7 @@
 import streamlit as st
 import pandas as pd
 from openai import OpenAI
-from decouple import config
-import os
-# client = OpenAI(
-#     api_key=config("OPENAI_API_KEY"),
-# )
+
 
 
 openai_api_key = st.secrets["openai"]["api_key"]
