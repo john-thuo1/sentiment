@@ -60,6 +60,7 @@ def generate_graph(df):
 
 
 def main():
+    st.image("https://www.shutterstock.com/image-vector/application-laptop-business-graph-analytics-600nw-1228814305.jpg", use_column_width=True)
     st.title("Business Data Insights")
 
     csv_file = st.file_uploader("Please upload Your Updated Business' Reviews", type=["csv"])

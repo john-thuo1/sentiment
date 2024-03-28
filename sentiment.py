@@ -19,7 +19,7 @@ def sentiment_score(review, tokenizer, model):
     result = model(tokens)
     return int(torch.argmax(result.logits) + 1)
 
-
+st.image("https://t4.ftcdn.net/jpg/05/07/99/33/360_F_507993376_rCbxKj9u6mXi7ei9CZiZFhWj0QpGnxOu.jpg", use_column_width=True)
 def main():
     st.title("Opinion Mining Tool For Your Business")
     csv_file = st.file_uploader("Please upload Your Business' Reviews", type=["csv"])
