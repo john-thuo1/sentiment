@@ -76,8 +76,29 @@ def main():
                 else:  # role == "assistant"
                     st.markdown(f"<i class='fas fa-robot'></i> {chat_message['content']}", unsafe_allow_html=True)
 
+            
 
-            prompt = st.chat_input("Follow Up Question? Inquire from here ...")
+            custom_css = """
+                <style>
+                    ::placeholder {
+                        color: white !important;
+                        opacity: 1;
+                    }
+
+                    :-ms-input-placeholder {
+                        color: white !important;
+                    }
+
+                    ::-ms-input-placeholder {
+                        color: white !important;
+                    }
+                </style>
+            """
+
+            st.markdown(custom_css, unsafe_allow_html=True)
+
+       
+            prompt = st.chat_input(placeholder="Follow Up Question? Inquire from here ...")
             if prompt:
                 st.session_state.chat_history.append({"role": "user", "content": prompt})
                 follow_up_response = generate_follow_up_response(st.session_state.chat_history)
