@@ -3,8 +3,8 @@ import pandas as pd
 from openai import OpenAI
 
 
-
 openai_api_key = st.secrets["openai"]["api_key"]
+
 
 # Initialize the OpenAI client
 client = OpenAI(api_key=openai_api_key)
@@ -19,10 +19,10 @@ def truncate_text(text, max_length):
 def generate_initial_recommendation(business_data):
     message = ""
     for _, row in business_data.iterrows():
-        review = row['Review']
-        sentiment_score = row['Sentiment Score']
+        review = row['review']
+        sentiment_score = row['sentiment score']
         review = truncate_text(review, 500)
-        message += f"Review: {review}\nSentiment Score: {sentiment_score}\n"
+        message += f"review: {review}\nsentiment score: {sentiment_score}\n"
     message = truncate_text(message, 4096)
     
     response = client.chat.completions.create(
@@ -55,14 +55,16 @@ def main():
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
 
-    file = st.file_uploader("Upload a CSV file for analysis", type=["csv"])
+    file = st.file_uploader("Upload the Updated CSV file with the Sentiments Already Done for further Recommendation", type=["csv"])
     
     if file is not None:
         business_data = pd.read_csv(file)
+        business_data.columns = business_data.columns.str.lower()
+
         st.subheader("Uploaded Business Data")
         st.dataframe(business_data)
 
-        required_columns = ["Product_Name", "Review", "Sentiment Score"]
+        required_columns = ["product_name", "review", "sentiment score"]
         if set(required_columns).issubset(business_data.columns):
             if 'initial_recommendation_done' not in st.session_state:
                 recommendation = generate_initial_recommendation(business_data)
@@ -106,6 +108,7 @@ def main():
                 st.rerun()
         else:
             st.error("Error: The uploaded CSV file does not contain all the required columns.")
+
 
 if __name__ == "__main__":
     main()
