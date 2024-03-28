@@ -58,9 +58,9 @@ def main():
     if file is not None:
         business_data = pd.read_csv(file)
         st.subheader("Uploaded Business Data")
-        st.write(business_data)
+        st.dataframe(business_data)
 
-        required_columns = ["Review", "Sentiment Score"]
+        required_columns = ["Product_Name", "Review", "Sentiment Score"]
         if set(required_columns).issubset(business_data.columns):
             if 'initial_recommendation_done' not in st.session_state:
                 recommendation = generate_initial_recommendation(business_data)

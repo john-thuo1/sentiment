@@ -25,7 +25,7 @@ def main():
     csv_file = st.file_uploader("Please upload Your Business' Reviews", type=["csv"])
 
     if csv_file is not None:
-        df = pd.read_csv(csv_file)
+        df = pd.read_csv(csv_file, encoding='latin1')
         df['Sentiment Score'] = 0  
         snapshot = df.head(3)
         st.dataframe(snapshot) 
