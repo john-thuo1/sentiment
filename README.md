@@ -21,7 +21,7 @@
      Replace `"Your API KEY"` with your actual OpenAI API Key. This file will be used to store sensitive information securely within your project.
 
 
-3. System Error Handling:
+3. **System Error Handling:**
 
    - The system verifies if the uploaded file conforms to the required file structure, notifying businesses about any missing columns.
    - Automatically detecting file encodings, the system ensures that files are read based on these encodings.
