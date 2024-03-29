@@ -30,7 +30,7 @@
      
 ### Project Testing
 
-  - Download example Reviews Data in the `Dataset` Folder.
+  - Download Flipkart Reviews Data in the `Dataset` Folder.
   - Upload the Dataset to the sentiment Page to generate the Sentiment Scores and Overall Sentiments for each of the Customer Reviews.
   - Download the Updated Reviews( e.g `Flipkart_updated_reviews_2019_11_01.csv`) and store them Locally.
   - Upload the Updated Reviews to Business Recommendations Page to get actionable recommendations from `gpt3.5-turbo` model and ask follow-up questions.
