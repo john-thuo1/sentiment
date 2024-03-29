@@ -5,8 +5,11 @@
 
 ### Project Setup Instructions
 
+- Create a Virtual Environment using either Venv/ Conda
+- Activate the Environment and  run ```pip install -r requirements.txt```
+
 1. **PyTorch Library Installation:**
-   - To install the PyTorch library, please visit the [Official PyTorch Page](https://pytorch.org/) and follow the installation instructions. It is recommended to install PyTorch without CUDA support.
+   - If PyTorch Installation fails via `requirements.txt`, please visit the [Official PyTorch Page](https://pytorch.org/) and follow the installation instructions. It is recommended to install PyTorch without CUDA support.
 
 2. **Setting Up Secrets for Local Run:**
    - Create a `secrets.toml` file in the `./streamlit` directory within your project root folder. 
@@ -27,6 +30,10 @@
    - Automatically detecting file encodings, the system ensures that files are read based on these encodings.
    - Date columns are converted to the required date format by the system.
    - To prevent key errors caused by columns specified in different formats, the system standardizes all columns to lowercase.
+
+     ```
+     streamlit run sentiment.py
+     ```
      
 ### Project Testing
 
