@@ -1,8 +1,3 @@
-### Video Recording and Deployment
-
-1. [G1 Video Recording](https://drive.google.com/file/d/1YThAEbFXEbe7DsXZdseynq2p1KzIgwD5/view?usp=sharing)
-2. [Hosted App Link](https://sentiment-g1.streamlit.app/)
-
 ### Project Setup Instructions
 
 - Create a Virtual Environment using either Venv/ Conda
