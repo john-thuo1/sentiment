@@ -1,2 +1,4 @@
 .streamlit/secrets.toml
 pages/__pycache__
+sentim_env
+
